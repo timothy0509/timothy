@@ -1,0 +1,99 @@
+/* --- Google Sans (General Purpose) --- */
+@font-face {
+  font-family: 'Google Sans';
+  src: url('fonts/GoogleSans-Regular.ttf') format('truetype');
+  font-weight: 400; /* or 'normal' */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url('fonts/GoogleSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url('fonts/GoogleSans-Bold.ttf') format('truetype');
+  font-weight: 700; /* or 'bold' */
+  font-style: normal;
+}
+
+/* You can add italic versions if you have them */
+/*
+@font-face {
+  font-family: 'Google Sans';
+  src: url('fonts/GoogleSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+*/
+
+/* --- Google Sans Display (For large text like headlines) --- */
+@font-face {
+  font-family: 'Google Sans Display';
+  src: url('fonts/GoogleSansDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Google Sans Display';
+  src: url('fonts/GoogleSansDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+/* Add other weights/styles for Display as needed */
+
+
+/* --- Google Sans Text (For smaller body text, UI elements) --- */
+@font-face {
+  font-family: 'Google Sans Text';
+  src: url('fonts/GoogleSansText-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+/* Add other weights/styles for Text as needed */
+/*
+@font-face {
+  font-family: 'Google Sans Text';
+  src: url('fonts/GoogleSansText-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+*/
+
+/* --- Fallback Sans-Serif (Good Practice) --- */
+/* No @font-face needed for system fonts like Roboto, Arial, etc. */
+
+
+/* --- Applying the fonts --- */
+body {
+  /* Use Google Sans Text for general body copy for readability at smaller sizes */
+  font-family: 'Google Sans Text', 'Google Sans', Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  font-weight: 400; /* Default to regular weight */
+  color: #333; /* Example default text color */
+}
+
+h1, h2, .site-title a { /* .site-title a is for your "Timothy" site title */
+  /* Use Google Sans Display for large, prominent headings */
+  font-family: 'Google Sans Display', 'Google Sans', Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700; /* Bold for display headings */
+  /* Add specific margins/paddings for headings later */
+}
+
+h3, h4, h5, h6 {
+  /* Use Google Sans for subheadings - often a bit more robust than Display at smaller sizes */
+  font-family: 'Google Sans', Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500; /* Medium weight for subheadings */
+}
+
+/* Example of using a specific weight if needed */
+.some-specific-element {
+  font-family: 'Google Sans';
+  font-weight: 500; /* Medium weight */
+}
