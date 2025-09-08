@@ -1,0 +1,134 @@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Timothy - Portfolio</title>
+
+    <!-- Critical theme setup: run before any CSS to avoid flash -->
+    <script>
+        (function () {
+            try {
+                const stored = localStorage.getItem("theme"); // "dark" or "light" or null
+                const prefersDark =
+                    window.matchMedia &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+                // Decide desired mode
+                const useDark =
+                    stored === "dark" || (stored === null && prefersDark);
+
+                // Set class early
+                if (useDark) {
+                    document.documentElement.classList.add("dark");
+                } else {
+                    document.documentElement.classList.remove("dark");
+                }
+
+                // Set immediate background color on documentElement and body to avoid flash
+                // Use same colors as Tailwind's slate backgrounds used in design.
+                const darkBg = "#0f172a"; // slate-900
+                const lightBg = "#f8fafc"; // slate-100
+                const bg = useDark ? darkBg : lightBg;
+
+                // Inline style on the element so the browser paints it immediately
+                document.documentElement.style.backgroundColor = bg;
+
+                // In some browsers body may not exist yet; try-catch fallback
+                if (document.body) {
+                    document.body.style.backgroundColor = bg;
+                } else {
+                    // attach for when body is parsed
+                    document.addEventListener("DOMContentLoaded", () => {
+                        document.body.style.backgroundColor = bg;
+                    });
+                }
+
+                // Set meta theme-color for mobile address bar coloring
+                let meta = document.querySelector('meta[name="theme-color"]');
+                if (!meta) {
+                    meta = document.createElement("meta");
+                    meta.name = "theme-color";
+                    document.head.appendChild(meta);
+                }
+                meta.content = useDark ? darkBg : lightBg;
+            } catch (e) {
+                // If anything fails, do nothing; avoid breaking page
+                console.error("Theme init error:", e);
+            }
+        })();
+    </script>
+
+    <!-- Minimal inline critical CSS: use CSS var --bg that script sets as inline style on html -->
+    <style>
+        :root {
+            --bg: #f8fafc;
+        }
+        /* Respect system dark preference by default before JS runs if user has no localStorage preference */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0f172a;
+            }
+        }
+        html,
+        body {
+            background: var(--bg);
+            /* disable transitions during initial paint to avoid seeing background change animation */
+            transition: none !important;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100%;
+        }
+    </style>
+
+    <!-- Preconnect fonts early -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <!-- Tailwind - now load normally -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    keyframes: {
+                        fadeInUp: {
+                            "0%": { opacity: 0, transform: "translateY(20px)" },
+                            "100%": { opacity: 1, transform: "translateY(0)" },
+                        },
+                    },
+                    animation: {
+                        fadeInUp: "fadeInUp 0.8s ease-out forwards",
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- Small page-fade keyframes (kept) -->
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+        }
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Poppins", sans-serif;
+        }
+        @keyframes fadePage {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        /* Re-enable transitions after initial paint optionally in JS if needed */
+    </style>
+</head>

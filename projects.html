@@ -1,104 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Timothy - Projects</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        keyframes: {
+                            fadeInUp: {
+                                "0%": {
+                                    opacity: 0,
+                                    transform: "translateY(20px)",
+                                },
+                                "100%": {
+                                    opacity: 1,
+                                    transform: "translateY(0)",
+                                },
+                            },
+                        },
+                        animation: {
+                            fadeInUp: "fadeInUp 0.8s ease-out forwards",
+                        },
+                    },
+                },
+            };
+        </script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                font-family: "Inter", sans-serif;
+            }
+            h1,
+            h2,
+            h3,
+            h4 {
+                font-family: "Poppins", sans-serif;
+            }
+        </style>
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Timothy - Projects</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
-</head>
+    <body
+        class="bg-gradient-to-br from-slate-100 via-white to-slate-200 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 min-h-screen flex flex-col transition-colors duration-500"
+    >
+        <div id="header"></div>
 
-<body>
-    <header>
-        <div class="container">
-            <h1>Timothy</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="aspirations.html">Aspirations</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        <main class="flex-grow">
+            <section
+                class="max-w-5xl mx-auto mt-16 p-10 bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl shadow-lg animate-fadeInUp"
+            >
+                <h2
+                    class="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent"
+                >
+                    Demonstrated Skills & Project Highlights
+                </h2>
+                <p
+                    class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-8"
+                >
+                    Timothy's self-directed projects are testaments to his
+                    hands-on technical abilities, innovative thinking, and
+                    commitment to delivering impactful results:
+                </p>
 
-    <main class="container">
-        <section id="project-highlights">
-            <h2>Demonstrated Skills & Project Highlights</h2>
-            <p>
-                Timothy's self-directed projects are testaments to his hands-on
-                technical abilities, innovative thinking, and commitment to
-                delivering impactful results:
-            </p>
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div
+                        class="p-6 bg-white/40 dark:bg-slate-800/40 rounded-xl shadow-md hover:shadow-blue-500/30 transition"
+                    >
+                        <h3
+                            class="text-xl font-semibold text-slate-800 dark:text-slate-100"
+                        >
+                            1. Hong Kong Public Transport Real-Time ETA Website
+                        </h3>
+                        <p class="text-slate-700 dark:text-slate-300 mt-2">
+                            Built a web app providing real-time estimated
+                            arrival times for KMB buses, MTR, and Light Rail
+                            services in Hong Kong.
+                        </p>
+                    </div>
 
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>1. Hong Kong Public Transport Real-Time ETA Website</h3>
-                    <p>
-                        As the sole developer, Timothy conceived, designed, and built a
-                        web application that provides real-time estimated arrival times
-                        for KMB buses, MTR, and Light Rail services in Hong Kong.
-                    </p>
-                    <p class="skills">
-                        <strong>Skills Demonstrated:</strong> Web development (frontend
-                        and backend), API integration, user interface (UI) design, user
-                        experience (UX) principles, data processing, independent project
-                        management, and a focus on creating intuitive and professional
-                        tools. The positive reception from friends using the service
-                        underscores its practical utility and user-friendliness.
-                    </p>
+                    <div
+                        class="p-6 bg-white/40 dark:bg-slate-800/40 rounded-xl shadow-md hover:shadow-blue-500/30 transition"
+                    >
+                        <h3
+                            class="text-xl font-semibold text-slate-800 dark:text-slate-100"
+                        >
+                            2. Personal Minecraft Server Conversion & Management
+                        </h3>
+                        <p class="text-slate-700 dark:text-slate-300 mt-2">
+                            Repurposed and upgraded a 10-year-old desktop AIO PC
+                            into a dedicated Minecraft server for friends.
+                        </p>
+                    </div>
+
+                    <div
+                        class="p-6 bg-white/40 dark:bg-slate-800/40 rounded-xl shadow-md hover:shadow-blue-500/30 transition"
+                    >
+                        <h3
+                            class="text-xl font-semibold text-slate-800 dark:text-slate-100"
+                        >
+                            3. Shared Digital Services Resource Management
+                        </h3>
+                        <p class="text-slate-700 dark:text-slate-300 mt-2">
+                            Manages a system of shared subscriptions for
+                            streaming, music, and cloud services, optimizing
+                            costs for friends and family.
+                        </p>
+                    </div>
                 </div>
+            </section>
+        </main>
 
-                <div class="project-card">
-                    <h3>2. Personal Minecraft Server Conversion & Management</h3>
-                    <p>
-                        Timothy resourcefully repurposed and significantly upgraded a
-                        10-year-old desktop AIO PC, transforming it into a dedicated
-                        Minecraft server for friends. This involved substantial hardware
-                        modifications and comprehensive system setup.
-                    </p>
-                    <p class="skills">
-                        <strong>Skills Demonstrated:</strong> System administration,
-                        hardware management and upgrading, operating system installation,
-                        network configuration, troubleshooting, resource optimization, and
-                        ongoing server maintenance. This project highlights his practical
-                        ability to build and manage robust technical infrastructure from
-                        the ground up.
-                    </p>
-                </div>
-
-                <div class="project-card">
-                    <h3>3. Shared Digital Services Resource Management</h3>
-                    <p>
-                        Timothy initiated and manages a system where he strategically
-                        purchases subscriptions for various streaming, music, and cloud
-                        services, then shares access with a network of clients (friends
-                        and family) to achieve significant cost savings for everyone
-                        involved. The initiative operates on a cost-recovery basis,
-                        providing mutual benefit without personal profit.
-                    </p>
-                    <p class="skills">
-                        <strong>Skills Demonstrated:</strong> Entrepreneurial thinking,
-                        resource management, cost optimization, logistics coordination,
-                        client relationship management, and a practical application of
-                        financial acumen to create value and efficiency within a
-                        community.
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Timothy. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-
+        <div id="footer"></div>
+        <script src="include.js"></script>
+    </body>
 </html>
