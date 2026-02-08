@@ -14,60 +14,108 @@ export default function HomePage() {
         <Container>
           <div className="relative py-20 sm:py-28">
             <div className="pointer-events-none absolute inset-0 -z-10">
-              <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[rgba(163,183,255,0.14)] blur-3xl" />
-              <div className="absolute right-0 top-24 h-72 w-72 rounded-full bg-[rgba(255,255,255,0.06)] blur-3xl" />
+              <div className="absolute left-1/2 top-8 h-[460px] w-[460px] -translate-x-1/2 rounded-full bg-[rgba(42,111,115,0.12)] blur-[90px]" />
+              <div className="absolute right-0 top-24 h-64 w-64 rounded-full bg-[rgba(16,24,32,0.08)] blur-[70px]" />
             </div>
 
-            <div className="grid gap-10">
-              <div className="grid gap-5">
-                <div className="flex flex-wrap items-center gap-2">
-                  {[
-                    "Finance",
-                    "Economics",
-                    "Information Technology",
-                  ].map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-3 py-1 text-xs font-medium tracking-tight text-[var(--muted)]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+            <div className="grid gap-12">
+              <div className="page-reveal grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+                <div className="grid gap-6">
+                  <div className="flex flex-wrap items-center gap-2">
+                    {[
+                      "Information Technology",
+                      "Systems",
+                      "Economics",
+                      "Accounting",
+                    ].map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-[var(--border)] bg-[rgba(255,255,255,0.7)] px-3 py-1 text-xs font-medium tracking-tight text-[var(--muted)]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <h1 className="heading-display text-pretty text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-6xl">
+                    Designing dependable systems with a tech-first lens.
+                  </h1>
+
+                  <p className="max-w-2xl text-pretty text-[15px] leading-7 text-[var(--muted)] sm:text-base">
+                    I’m {site.name}, a student in Hong Kong focused on Information
+                    Technology. I build practical systems and user-facing tools,
+                    applying economics and accounting as decision-making context.
+                  </p>
+
+                  <div className="flex flex-wrap gap-3 pt-1">
+                    <LinkButton href="#projects">View projects</LinkButton>
+                    <LinkButton href="#contact" variant="secondary">
+                      Contact
+                    </LinkButton>
+                  </div>
                 </div>
 
-                <h1 className="text-pretty text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-6xl">
-                  Building practical, user-centric systems.
-                </h1>
-
-                <p className="max-w-2xl text-pretty text-[15px] leading-7 text-[var(--muted)] sm:text-base">
-                  I’m {site.name}, a multidisciplinary student with a focus on
-                  applying technical solutions to real-world problems—combining
-                  analytical rigor with hands-on implementation.
-                </p>
-
-                <div className="flex flex-wrap gap-3 pt-1">
-                  <LinkButton href="#projects">View projects</LinkButton>
-                  <LinkButton href="#contact" variant="secondary">
-                    Contact
-                  </LinkButton>
+                <div className="tech-grid hero-band rounded-3xl border border-[var(--border)] bg-[var(--paper)] p-6 shadow-[0_30px_60px_rgba(16,24,32,0.08)]">
+                  <div className="flex items-center justify-between">
+                    <p className="eyebrow text-xs font-medium uppercase text-[var(--muted)]">
+                      hk tech ledger
+                    </p>
+                    <p className="text-xs font-medium text-[var(--muted)]">
+                      updated · 2026
+                    </p>
+                  </div>
+                  <div className="mt-4 flex items-center gap-2 text-xs font-medium text-[var(--muted)]">
+                    <span className="inline-flex h-6 items-center rounded-full border border-[var(--border)] bg-[rgba(255,255,255,0.8)] px-3">
+                      Hong Kong
+                    </span>
+                    <span className="inline-flex h-6 items-center rounded-full border border-[var(--border)] bg-[rgba(255,255,255,0.8)] px-3">
+                      IT · Economics · Accounting
+                    </span>
+                  </div>
+                  <div className="mt-6 grid gap-4">
+                    <div className="ledger-lines">
+                      <p className="text-sm font-semibold text-[var(--text)]">
+                        Focus
+                      </p>
+                      <p className="mt-2 text-sm text-[var(--muted)]">
+                        Systems design · Web apps · Reliability
+                      </p>
+                    </div>
+                    <div className="ledger-lines">
+                      <p className="text-sm font-semibold text-[var(--text)]">
+                        Built With
+                      </p>
+                      <p className="mt-2 text-sm text-[var(--muted)]">
+                        Next.js · API integrations · Infrastructure
+                      </p>
+                    </div>
+                    <div className="ledger-lines">
+                      <p className="text-sm font-semibold text-[var(--text)]">
+                        Context
+                      </p>
+                      <p className="mt-2 text-sm text-[var(--muted)]">
+                        Economics and accounting for practical decisions
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div className="grid gap-4 lg:grid-cols-3">
                 <Card
-                  title="A professional profile"
-                  subtitle="Finance, Economics, Technology"
+                  title="Tech-forward profile"
+                  subtitle="Systems, interfaces, delivery"
                 >
-                  A multidisciplinary foundation bridging business context and
-                  practical implementation.
+                  IT-first work focused on building tools that are reliable,
+                  usable, and grounded in real constraints.
                 </Card>
                 <Card title="Strategic + technical" subtitle="How I work">
-                  I think about tradeoffs and outcomes, then build systems that
-                  are simple to use and reliable.
+                  I model the problem, prototype quickly, then refine into
+                  dependable systems that people actually use.
                 </Card>
-                <Card title="Impactful delivery" subtitle="Hands-on projects">
-                  Self-directed work showcasing resourcefulness, usability focus,
-                  and tangible results.
+                <Card title="Applied outcomes" subtitle="Projects">
+                  Self-directed projects that prioritize data integrity,
+                  performance, and clean user experience.
                 </Card>
               </div>
             </div>
@@ -78,31 +126,38 @@ export default function HomePage() {
       <Section id="about" eyebrow="About" title="A multidisciplinary foundation">
         <div className="grid gap-6">
           <p>
-            My academic path blends Finance and Economics with Information
-            Technology. That combination gives me a perspective for work where
-            technology intersects with business and resource management.
+            My academic path centers on Information Technology, with Economics
+            and Accounting as supporting disciplines. That blend helps me make
+            grounded technical decisions that map to real-world constraints.
           </p>
           <p>
-            I approach challenges both technically (building systems and
+            I approach challenges technically (building systems and
             implementing solutions) and strategically (considering context,
             tradeoffs, and outcomes).
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-[var(--border)] bg-[rgba(255,255,255,0.02)] p-5">
-              <p className="text-sm font-medium text-[var(--text)]">
+            <div className="rounded-2xl border border-[var(--border)] bg-[rgba(255,255,255,0.75)] p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+                Signal 01
+              </p>
+              <p className="mt-2 text-sm font-medium text-[var(--text)]">
                 Analytical rigor
               </p>
               <p className="mt-2 text-sm text-[var(--muted)]">
-                Finance & economics framing to reason clearly and make decisions.
+                Economics and accounting framing to reason clearly and justify
+                decisions.
               </p>
             </div>
-            <div className="rounded-2xl border border-[var(--border)] bg-[rgba(255,255,255,0.02)] p-5">
-              <p className="text-sm font-medium text-[var(--text)]">
+            <div className="rounded-2xl border border-[var(--border)] bg-[rgba(255,255,255,0.75)] p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+                Signal 02
+              </p>
+              <p className="mt-2 text-sm font-medium text-[var(--text)]">
                 Practical application
               </p>
               <p className="mt-2 text-sm text-[var(--muted)]">
-                Implementing user-centric systems that solve concrete problems.
+                Building user-centric systems that solve concrete problems.
               </p>
             </div>
           </div>
@@ -145,6 +200,30 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <Section
+        id="ctfs"
+        eyebrow="CTFs"
+        title="Cybersecurity CTF results"
+      >
+        <div className="grid gap-6">
+          <p>
+            Competing in the secondary school category with team Sing Yin Jockey
+            Club, I focus on practical defense skills and consistent results.
+          </p>
+          <div className="grid gap-4 lg:grid-cols-3">
+            <Card title="CUHK CTF" subtitle="2025">
+              5th place in the secondary school category.
+            </Card>
+            <Card title="HKCERT CTF" subtitle="2025">
+              Gold award in the secondary school category.
+            </Card>
+            <Card title="HKUST Firebird CTF" subtitle="2026">
+              7th place overall, 1st place in the secondary school category.
+            </Card>
+          </div>
+        </div>
+      </Section>
+
       <Section id="aspirations" eyebrow="Aspirations" title="Where I’m heading">
         <div className="grid gap-6">
           <p>
@@ -170,9 +249,12 @@ export default function HomePage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="rounded-2xl border border-[var(--border)] bg-[rgba(255,255,255,0.02)] p-5"
+                className="rounded-2xl border border-[var(--border)] bg-[rgba(255,255,255,0.75)] p-5"
               >
-                <p className="text-sm font-medium text-[var(--text)]">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+                  Priority
+                </p>
+                <p className="mt-2 text-sm font-medium text-[var(--text)]">
                   {item.title}
                 </p>
                 <p className="mt-2 text-sm text-[var(--muted)]">{item.body}</p>
@@ -193,7 +275,7 @@ export default function HomePage() {
             <Card title="Email" subtitle="Fastest way to reach me">
               <Link
                 href={`mailto:${site.email}`}
-                className="text-[var(--text)] underline decoration-white/20 underline-offset-4 hover:decoration-white/40"
+                className="text-[var(--text)] underline decoration-[rgba(42,111,115,0.35)] underline-offset-4 hover:decoration-[rgba(42,111,115,0.6)]"
               >
                 {site.email}
               </Link>
@@ -233,10 +315,13 @@ export default function HomePage() {
             </Card>
           </div>
 
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[var(--muted)]">
-              Websites
-            </p>
+          <div className="rounded-3xl border border-[var(--border)] bg-[var(--paper)] p-6 shadow-[0_30px_60px_rgba(16,24,32,0.08)]">
+            <div className="flex items-center justify-between">
+              <p className="eyebrow text-xs font-medium uppercase text-[var(--muted)]">
+                Websites
+              </p>
+              <span className="text-xs font-medium text-[var(--muted)]">hk stack</span>
+            </div>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               <ProductTile
                 name="TimoDrive"

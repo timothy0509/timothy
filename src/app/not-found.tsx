@@ -7,10 +7,10 @@ export default function NotFound() {
     <main>
       <Container>
         <div className="py-20">
-          <p className="text-xs font-medium uppercase tracking-[0.14em] text-[var(--muted)]">
+          <p className="eyebrow text-xs font-medium uppercase text-[var(--muted)]">
             404
           </p>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--text)]">
+          <h1 className="heading-display mt-3 text-3xl font-semibold tracking-tight text-[var(--text)]">
             Page not found
           </h1>
           <p className="mt-4 max-w-lg text-[15px] leading-7 text-[var(--muted)]">

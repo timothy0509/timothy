@@ -16,7 +16,7 @@ export function LinkButton({ href, children, variant = "primary" }: Props) {
     return (
       <Link
         href={href}
-        className={`${base} border border-[rgba(163,183,255,0.30)] bg-[rgba(163,183,255,0.12)] text-[var(--text)] shadow-[0_10px_40px_rgba(163,183,255,0.12)] hover:border-[rgba(163,183,255,0.42)] hover:bg-[rgba(163,183,255,0.18)]`}
+        className={`${base} border border-[rgba(42,111,115,0.35)] bg-[rgba(42,111,115,0.12)] text-[var(--text)] shadow-[0_12px_32px_rgba(42,111,115,0.12)] hover:border-[rgba(42,111,115,0.5)] hover:bg-[rgba(42,111,115,0.2)]`}
       >
         {children}
       </Link>
@@ -26,7 +26,7 @@ export function LinkButton({ href, children, variant = "primary" }: Props) {
   return (
     <Link
       href={href}
-      className={`${base} border border-[var(--border)] bg-[rgba(255,255,255,0.02)] text-[var(--text)] hover:bg-[rgba(255,255,255,0.04)]`}
+      className={`${base} border border-[var(--border)] bg-[rgba(255,255,255,0.6)] text-[var(--text)] hover:bg-[rgba(42,111,115,0.08)]`}
     >
       {children}
     </Link>

@@ -1,8 +1,8 @@
 export const site = {
   name: "Timothy Wong",
-  title: "Timothy Wong — Finance, Economics & IT",
+  title: "Timothy Wong — Information Technology, Economics & Accounting",
   description:
-    "A multidisciplinary student in Finance, Economics, and IT building practical, user-centric systems.",
+    "A tech-first student in Information Technology with economics and accounting as decision-making context.",
   email: "timothy@hkjc.uk",
   links: {
     github: "https://github.com/timothy0509",

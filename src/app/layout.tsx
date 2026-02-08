@@ -1,20 +1,31 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Rubik } from "next/font/google";
+import { Fraunces, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
-const rubik = Rubik({
-  variable: "--font-rubik",
+const display = Fraunces({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const sans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
-const title = "Timothy Wong — Finance, Economics & IT";
+const mono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const title = "Timothy Wong — Information Technology, Economics & Accounting";
 const description =
-  "A multidisciplinary student in Finance, Economics, and IT building practical, user-centric systems.";
+  "A tech-first student in Information Technology with economics and accounting as decision-making context.";
 
 export const metadata: Metadata = {
   title: {
@@ -40,7 +51,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${rubik.variable} ${geistMono.variable} min-h-dvh antialiased`}>
+      <body
+        className={`${display.variable} ${sans.variable} ${mono.variable} min-h-dvh antialiased`}
+      >
         <div className="flex min-h-dvh flex-col">
           <SiteHeader />
           <div className="flex-1">{children}</div>
