@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[var(--border)] bg-[rgba(255,255,255,0.6)]">
+    <footer className="glass border-t border-[var(--border)]">
       <Container>
         <div className="flex flex-col gap-4 py-10 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-[var(--muted)]">

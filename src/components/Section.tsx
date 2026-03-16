@@ -19,10 +19,10 @@ export function Section({
         <div className="grid gap-10 lg:grid-cols-[0.35fr_0.65fr]">
           <div className="relative flex flex-col gap-4 pl-6">
             <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-[var(--accent)]" />
-            <span className="absolute left-[3px] top-6 h-[calc(100%-0.5rem)] w-px bg-[rgba(16,24,32,0.18)]" />
+            <span className="absolute left-[3px] top-6 h-[calc(100%-0.5rem)] w-px bg-[var(--glass-border)]" />
             {eyebrow ? (
               <div className="flex items-center gap-3">
-                <span className="h-px w-10 bg-[rgba(16,24,32,0.25)]" />
+                <span className="h-px w-10 bg-[var(--border)]" />
                 <p className="eyebrow text-xs font-medium uppercase text-[var(--muted)]">
                   {eyebrow}
                 </p>
@@ -31,9 +31,9 @@ export function Section({
             <h2 className="heading-display text-pretty text-2xl font-semibold tracking-tight text-[var(--text)] sm:text-3xl">
               {title}
             </h2>
-            <span className="h-px w-12 bg-[rgba(16,24,32,0.25)]" />
+            <span className="h-px w-12 bg-[var(--border)]" />
           </div>
-          <div className="relative rounded-3xl border border-[var(--border)] bg-[var(--paper)] p-7 shadow-[0_30px_60px_rgba(16,24,32,0.08)]">
+          <div className="glass-card relative rounded-3xl p-7">
             <span className="pointer-events-none absolute right-6 top-6 h-2 w-2 rounded-full bg-[var(--accent)] opacity-60" />
             <div className="text-[15px] leading-7 text-[var(--muted)]">
               {children}

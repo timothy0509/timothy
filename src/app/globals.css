@@ -30,6 +30,18 @@ samp {
   --accent-soft: rgba(42, 111, 115, 0.14);
   --ink: #1a1f26;
   --paper: #fbf7f1;
+
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.56);
+  --glass-bg-surface: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(16, 24, 32, 0.1);
+  --glass-border-accent: rgba(42, 111, 115, 0.24);
+  --glass-shadow: 0 24px 48px rgba(16, 24, 32, 0.06);
+  --glass-shadow-hover: 0 32px 64px rgba(42, 111, 115, 0.08);
+  --accent-glass: rgba(42, 111, 115, 0.1);
+  --accent-glass-hover: rgba(42, 111, 115, 0.18);
+  --accent-border: rgba(42, 111, 115, 0.28);
+  --accent-border-hover: rgba(42, 111, 115, 0.42);
 }
 
 @theme inline {
@@ -85,6 +97,42 @@ html::after {
 
 ::selection {
   background: rgba(42, 111, 115, 0.2);
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-nav {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-card {
+  background: var(--glass-bg-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-pill {
+  background: var(--glass-bg-subtle);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-accent {
+  background: var(--accent-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border-accent);
 }
 
 .heading-display {

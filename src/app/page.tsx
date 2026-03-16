@@ -14,8 +14,8 @@ export default function HomePage() {
         <Container>
           <div className="relative py-20 sm:py-28">
             <div className="pointer-events-none absolute inset-0 -z-10">
-              <div className="absolute left-1/2 top-8 h-[460px] w-[460px] -translate-x-1/2 rounded-full bg-[rgba(42,111,115,0.12)] blur-[90px]" />
-              <div className="absolute right-0 top-24 h-64 w-64 rounded-full bg-[rgba(16,24,32,0.08)] blur-[70px]" />
+              <div className="absolute left-1/2 top-8 h-[460px] w-[460px] -translate-x-1/2 rounded-full bg-[var(--accent-glass)] blur-[90px]" />
+              <div className="absolute right-0 top-24 h-64 w-64 rounded-full bg-[var(--glass-border)] blur-[70px]" />
             </div>
 
             <div className="grid gap-12">
@@ -28,10 +28,10 @@ export default function HomePage() {
                       "Economics",
                       "Accounting",
                     ].map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-[var(--border)] bg-[rgba(255,255,255,0.7)] px-3 py-1 text-xs font-medium tracking-tight text-[var(--muted)]"
-                      >
+<span
+                         key={tag}
+                         className="glass-pill rounded-full px-3 py-1 text-xs font-medium tracking-tight text-[var(--muted)]"
+                       >
                         {tag}
                       </span>
                     ))}
@@ -55,7 +55,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="tech-grid hero-band rounded-3xl border border-[var(--border)] bg-[var(--paper)] p-6 shadow-[0_30px_60px_rgba(16,24,32,0.08)]">
+                <div className="tech-grid hero-band glass-card rounded-3xl p-6">
                   <div className="flex items-center justify-between">
                     <p className="eyebrow text-xs font-medium uppercase text-[var(--muted)]">
                       hk tech ledger
@@ -65,12 +65,12 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div className="mt-4 flex items-center gap-2 text-xs font-medium text-[var(--muted)]">
-                    <span className="inline-flex h-6 items-center rounded-full border border-[var(--border)] bg-[rgba(255,255,255,0.8)] px-3">
-                      Hong Kong
-                    </span>
-                    <span className="inline-flex h-6 items-center rounded-full border border-[var(--border)] bg-[rgba(255,255,255,0.8)] px-3">
-                      IT · Economics · Accounting
-                    </span>
+<span className="glass-pill inline-flex h-6 items-center rounded-full px-3">
+                       Hong Kong
+                     </span>
+                     <span className="glass-pill inline-flex h-6 items-center rounded-full px-3">
+                       IT · Economics · Accounting
+                     </span>
                   </div>
                   <div className="mt-6 grid gap-4">
                     <div className="ledger-lines">
@@ -136,31 +136,31 @@ export default function HomePage() {
             tradeoffs, and outcomes).
           </p>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-[var(--border)] bg-[rgba(255,255,255,0.75)] p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
-                Signal 01
-              </p>
-              <p className="mt-2 text-sm font-medium text-[var(--text)]">
-                Analytical rigor
-              </p>
-              <p className="mt-2 text-sm text-[var(--muted)]">
-                Economics and accounting framing to reason clearly and justify
-                decisions.
-              </p>
+          <div className="glass-card grid gap-4 rounded-2xl p-5 sm:grid-cols-2">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+                  Signal 01
+                </p>
+                <p className="mt-2 text-sm font-medium text-[var(--text)]">
+                  Analytical rigor
+                </p>
+                <p className="mt-2 text-sm text-[var(--muted)]">
+                  Economics and accounting framing to reason clearly and justify
+                  decisions.
+                </p>
+              </div>
+              <div className="glass-card grid gap-4 rounded-2xl p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+                  Signal 02
+                </p>
+                <p className="mt-2 text-sm font-medium text-[var(--text)]">
+                  Practical application
+                </p>
+                <p className="mt-2 text-sm text-[var(--muted)]">
+                  Building user-centric systems that solve concrete problems.
+                </p>
+              </div>
             </div>
-            <div className="rounded-2xl border border-[var(--border)] bg-[rgba(255,255,255,0.75)] p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
-                Signal 02
-              </p>
-              <p className="mt-2 text-sm font-medium text-[var(--text)]">
-                Practical application
-              </p>
-              <p className="mt-2 text-sm text-[var(--muted)]">
-                Building user-centric systems that solve concrete problems.
-              </p>
-            </div>
-          </div>
         </div>
       </Section>
 
@@ -247,18 +247,18 @@ export default function HomePage() {
                 body: "I’m most motivated by systems that ship and provide value.",
               },
             ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-[var(--border)] bg-[rgba(255,255,255,0.75)] p-5"
-              >
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
-                  Priority
-                </p>
-                <p className="mt-2 text-sm font-medium text-[var(--text)]">
-                  {item.title}
-                </p>
-                <p className="mt-2 text-sm text-[var(--muted)]">{item.body}</p>
-              </div>
+<div
+                 key={item.title}
+                 className="glass-card rounded-2xl p-5"
+               >
+                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+                   Priority
+                 </p>
+                 <p className="mt-2 text-sm font-medium text-[var(--text)]">
+                   {item.title}
+                 </p>
+                 <p className="mt-2 text-sm text-[var(--muted)]">{item.body}</p>
+               </div>
             ))}
           </div>
 
@@ -273,10 +273,10 @@ export default function HomePage() {
         <div className="grid gap-10">
           <div className="grid gap-4 lg:grid-cols-3">
             <Card title="Email" subtitle="Fastest way to reach me">
-              <Link
-                href={`mailto:${site.email}`}
-                className="text-[var(--text)] underline decoration-[rgba(42,111,115,0.35)] underline-offset-4 hover:decoration-[rgba(42,111,115,0.6)]"
-              >
+<Link
+                 href={`mailto:${site.email}`}
+                 className="text-[var(--text)] underline decoration-[var(--accent-border)] underline-offset-4 hover:decoration-[var(--accent)]"
+               >
                 {site.email}
               </Link>
             </Card>
@@ -315,7 +315,7 @@ export default function HomePage() {
             </Card>
           </div>
 
-          <div className="rounded-3xl border border-[var(--border)] bg-[var(--paper)] p-6 shadow-[0_30px_60px_rgba(16,24,32,0.08)]">
+          <div className="glass-card rounded-3xl p-6">
             <div className="flex items-center justify-between">
               <p className="eyebrow text-xs font-medium uppercase text-[var(--muted)]">
                 Websites
