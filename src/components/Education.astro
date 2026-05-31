@@ -1,0 +1,57 @@
+---
+import SectionReveal from "./SectionReveal.astro";
+
+const subjects = [
+  "Mathematics Extended Module 1 (M1)",
+  "Economics",
+  "Business, Accounting and Financial Studies — Accounting Elective Part",
+  "Information and Communication Technology — Electives A & C",
+];
+---
+
+<section id="education" class="py-24 md:py-32">
+  <div class="section-container">
+    <SectionReveal>
+      <div class="accent-line"></div>
+      <h2 class="section-title">Education</h2>
+      <p class="section-subtitle">Academic background and curriculum</p>
+    </SectionReveal>
+
+    <div class="grid md:grid-cols-5 gap-8">
+      <SectionReveal delay={1} class="md:col-span-2">
+        <div class="card h-full">
+          <p class="text-sm font-medium text-accent dark:text-accent-lighter mb-2">
+            Expected 2027
+          </p>
+          <h3 class="font-heading text-2xl font-semibold text-text dark:text-text-dark mb-2">
+            HKDSE
+          </h3>
+          <p class="text-muted dark:text-muted-dark text-sm leading-relaxed">
+            Hong Kong Diploma of Secondary Education — the university entrance
+            examination for secondary school students in Hong Kong.
+          </p>
+        </div>
+      </SectionReveal>
+
+      <SectionReveal delay={2} class="md:col-span-3">
+        <div class="card h-full">
+          <h3 class="font-heading text-xl font-semibold text-text dark:text-text-dark mb-4">
+            Elective Subjects
+          </h3>
+          <div class="space-y-3">
+            {
+              subjects.map((s) => (
+                <div class="flex items-start gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-accent dark:bg-accent-lighter mt-2 shrink-0" />
+                  <p class="text-sm text-muted dark:text-muted-dark leading-relaxed">
+                    {s}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </SectionReveal>
+    </div>
+  </div>
+</section>

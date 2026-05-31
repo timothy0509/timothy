@@ -1,0 +1,98 @@
+---
+import SectionReveal from "./SectionReveal.astro";
+
+const projects = [
+  {
+    title: "TimoDrive",
+    description:
+      "A self-hosted cloud storage solution running on personal server infrastructure, providing private file access and synchronisation across devices.",
+    tags: ["Self-Hosted", "Cloud Storage", "Linux"],
+    icon: "drive",
+  },
+  {
+    title: "TimoForums",
+    description:
+      "An independently deployed and managed online discussion forum built for community engagement and moderated content sharing.",
+    tags: ["Web Application", "Community", "Self-Hosted"],
+    icon: "forum",
+  },
+  {
+    title: "TimoPass",
+    description:
+      "A self-hosted password manager focused on secure credential storage, encryption, and personal data privacy.",
+    tags: ["Security", "Encryption", "Self-Hosted"],
+    icon: "lock",
+  },
+  {
+    title: "Minecraft Server",
+    description:
+      "A managed multiplayer game server emphasising performance tuning, plugin configuration, and community moderation.",
+    tags: ["Game Server", "Performance", "Community"],
+    icon: "server",
+  },
+  {
+    title: "Home Lab Infrastructure",
+    description:
+      "A personal server environment hosting multiple production services. Responsibilities include OS maintenance, reverse proxy configuration, automated backups, container orchestration, and security monitoring.",
+    tags: ["Infrastructure", "Docker", "Networking", "Monitoring"],
+    icon: "lab",
+  },
+];
+
+const iconPaths: Record<string, string> = {
+  drive: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3",
+  forum: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z",
+  lock: "M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2zM7 11V7a5 5 0 0 1 10 0v4",
+  server: "M2 2h20v6H2zM2 16h20v6H2zM6 8v8M18 8v8",
+  lab: "M3 3h18v18H3zM9 3v18M15 3v18M3 9h18M3 15h18",
+};
+---
+
+<section id="projects" class="py-24 md:py-32 bg-surface/50 dark:bg-surface-dark/30">
+  <div class="section-container">
+    <SectionReveal>
+      <div class="accent-line"></div>
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">
+        Self-hosted services and infrastructure I have built and manage
+      </p>
+    </SectionReveal>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        projects.map((p, i) => (
+          <SectionReveal delay={Math.min(i + 1, 5)}>
+            <div class="card group h-full flex flex-col">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-accent/10 dark:bg-accent/15 shrink-0">
+                  <svg
+                    class="w-5 h-5 text-accent dark:text-accent-lighter"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d={iconPaths[p.icon]} />
+                  </svg>
+                </div>
+                <h3 class="font-heading text-lg font-semibold text-text dark:text-text-dark">
+                  {p.title}
+                </h3>
+              </div>
+              <p class="text-sm text-muted dark:text-muted-dark leading-relaxed mb-4 flex-1">
+                {p.description}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {p.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </SectionReveal>
+        ))
+      }
+    </div>
+  </div>
+</section>

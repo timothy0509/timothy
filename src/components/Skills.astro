@@ -1,0 +1,75 @@
+---
+import SectionReveal from "./SectionReveal.astro";
+
+const skillGroups = [
+  {
+    category: "Programming",
+    skills: [
+      { name: "Python", level: "proficient" },
+      { name: "SQL", level: "proficient" },
+    ],
+  },
+  {
+    category: "Systems Administration",
+    skills: [
+      { name: "Linux Server Management", level: "advanced" },
+      { name: "Self-Hosted Infrastructure", level: "advanced" },
+      { name: "Network Configuration", level: "intermediate" },
+      { name: "Service Deployment", level: "advanced" },
+      { name: "Container Orchestration", level: "intermediate" },
+    ],
+  },
+  {
+    category: "Cybersecurity",
+    skills: [
+      { name: "Competitive CTF", level: "advanced" },
+      { name: "System Hardening", level: "intermediate" },
+      { name: "Secure Authentication", level: "intermediate" },
+      { name: "Security Monitoring", level: "intermediate" },
+    ],
+  },
+];
+
+const levelColors: Record<string, string> = {
+  advanced:
+    "bg-accent/10 dark:bg-accent/15 text-accent dark:text-accent-lighter",
+  proficient:
+    "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400",
+  intermediate:
+    "bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400",
+};
+---
+
+<section id="skills" class="py-24 md:py-32">
+  <div class="section-container">
+    <SectionReveal>
+      <div class="accent-line"></div>
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-subtitle">Core competencies and technologies</p>
+    </SectionReveal>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {
+        skillGroups.map((group, gi) => (
+          <SectionReveal delay={gi + 1}>
+            <div class="card h-full">
+              <h3 class="font-heading text-lg font-semibold text-text dark:text-text-dark mb-4">
+                {group.category}
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <span
+                    class:list={["tag", levelColors[skill.level]]}
+                    title={skill.level}
+                  >
+                    {skill.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </SectionReveal>
+        ))
+      }
+    </div>
+  </div>
+</section>

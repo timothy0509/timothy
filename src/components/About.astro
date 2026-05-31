@@ -1,0 +1,78 @@
+---
+import SectionReveal from "./SectionReveal.astro";
+---
+
+<section id="about" class="py-24 md:py-32">
+  <div class="section-container">
+    <SectionReveal>
+      <div class="accent-line"></div>
+      <h2 class="section-title">About</h2>
+      <p class="section-subtitle">A brief introduction</p>
+    </SectionReveal>
+
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <SectionReveal delay={1}>
+        <div class="space-y-6 text-base leading-relaxed text-muted dark:text-muted-dark">
+          <p>
+            I am a secondary school student in Hong Kong preparing for the 2027
+            HKDSE. My academic focus spans mathematics, economics, accounting,
+            and information technology, while my personal interests sit at the
+            intersection of software development, systems administration, and
+            cybersecurity.
+          </p>
+          <p>
+            I compete regularly in CTF competitions and independently manage a
+            full home lab environment — deploying and maintaining production
+            services, configuring reverse proxies, orchestrating containers, and
+            monitoring security across my infrastructure.
+          </p>
+        </div>
+      </SectionReveal>
+
+      <SectionReveal delay={2}>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="card text-center">
+            <div
+              class="text-3xl font-heading font-semibold text-accent dark:text-accent-lighter mb-1"
+            >
+              3
+            </div>
+            <div class="text-sm text-muted dark:text-muted-dark">
+              CTF Awards
+            </div>
+          </div>
+          <div class="card text-center">
+            <div
+              class="text-3xl font-heading font-semibold text-accent dark:text-accent-lighter mb-1"
+            >
+              5+
+            </div>
+            <div class="text-sm text-muted dark:text-muted-dark">
+              Self-Hosted Services
+            </div>
+          </div>
+          <div class="card text-center">
+            <div
+              class="text-3xl font-heading font-semibold text-accent dark:text-accent-lighter mb-1"
+            >
+              2
+            </div>
+            <div class="text-sm text-muted dark:text-muted-dark">
+              Leadership Roles
+            </div>
+          </div>
+          <div class="card text-center">
+            <div
+              class="text-3xl font-heading font-semibold text-accent dark:text-accent-lighter mb-1"
+            >
+              HK
+            </div>
+            <div class="text-sm text-muted dark:text-muted-dark">
+              Based in Hong Kong
+            </div>
+          </div>
+        </div>
+      </SectionReveal>
+    </div>
+  </div>
+</section>
