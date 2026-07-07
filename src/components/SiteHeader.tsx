@@ -4,58 +4,61 @@ import Link from "next/link";
 
 import { Container } from "@/components/Container";
 import { useActiveSection } from "@/components/useActiveSection";
-
-const nav = [
-  { href: "#home", id: "home", label: "Home" },
-  { href: "#about", id: "about", label: "About" },
-  { href: "#projects", id: "projects", label: "Projects" },
-  { href: "#aspirations", id: "aspirations", label: "Aspirations" },
-  { href: "#contact", id: "contact", label: "Contact" },
-] as const;
+import { sections, site } from "@/lib/site";
 
 export function SiteHeader() {
-  const active = useActiveSection(nav.map((n) => n.id));
+  const active = useActiveSection(sections.map((s) => s.id));
 
   return (
-    <header className="glass-nav sticky top-0 z-50 border-b border-[var(--border)]">
+    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--surface)] lg:hidden">
       <Container>
-        <div className="flex h-16 items-center justify-between gap-6">
+        <div className="flex h-14 items-center justify-between gap-4">
           <Link
             href="#home"
             className="heading-display text-base font-semibold tracking-tight text-[var(--text)]"
           >
-            Timothy Wong
+            {site.name}
           </Link>
 
-          <nav className="glass-pill hidden items-center gap-1 rounded-full p-1 sm:flex">
-            {nav.map((item) => {
-              const isActive = active === item.id;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={
-                    "relative rounded-full px-3 py-2 text-sm font-medium transition-colors " +
-                    (isActive
-                      ? "text-[var(--text)]"
-                      : "text-[var(--muted)] hover:text-[var(--text)]")
-                  }
-                >
-                  {isActive ? (
-                    <span className="glass-accent pointer-events-none absolute inset-0 -z-10 rounded-full shadow-[0_0_0_1px_var(--glass-border-accent),0_12px_32px_var(--accent-glass)]" />
-                  ) : null}
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
+          <details className="group relative">
+            <summary className="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-md border border-[var(--border)] text-[var(--text)] [&::-webkit-details-marker]:hidden">
+              <span className="sr-only">Open menu</span>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 4.5h14M2 9h14M2 13.5h14"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </summary>
 
-          <Link
-            href="#contact"
-            className="glass-accent rounded-full px-4 py-2 text-sm font-medium text-[var(--text)] transition-all hover:border-[var(--accent-border-hover)] hover:bg-[var(--accent-glass-hover)]"
-          >
-            Let’s connect
-          </Link>
+            <nav className="absolute right-0 top-full z-50 mt-2 min-w-44 rounded-md border border-[var(--border)] bg-[var(--surface)] py-2 shadow-sm">
+              {sections.map((item) => {
+                const isActive = active === item.id;
+                return (
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    className={
+                      "block px-4 py-2 text-sm transition-colors " +
+                      (isActive
+                        ? "font-medium text-[var(--text)]"
+                        : "text-[var(--muted)] hover:text-[var(--text)]")
+                    }
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
+          </details>
         </div>
       </Container>
     </header>

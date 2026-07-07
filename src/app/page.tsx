@@ -1,352 +1,246 @@
 import Link from "next/link";
 
-import { Card } from "@/components/Card";
-import { Container } from "@/components/Container";
 import { LinkButton } from "@/components/LinkButton";
-import { ProductTile } from "@/components/ProductTile";
+import { PageShell } from "@/components/PageShell";
+import { ProjectEntry } from "@/components/ProjectEntry";
 import { Section } from "@/components/Section";
-import { site } from "@/lib/site";
+import { projects, site } from "@/lib/site";
+
+const ctfResults = [
+  {
+    event: "CUHK CTF",
+    year: "2025",
+    result: "5th place, secondary school category",
+    highlight: true,
+  },
+  {
+    event: "HKCERT CTF",
+    year: "2025",
+    result: "Gold award, secondary school category",
+    highlight: true,
+  },
+  {
+    event: "HKUST Firebird CTF",
+    year: "2026",
+    result: "7th overall, 1st in secondary school category",
+    highlight: true,
+  },
+] as const;
 
 export default function HomePage() {
   return (
     <main>
-      <section id="home" className="scroll-mt-24">
-        <Container>
-          <div className="relative py-20 sm:py-28">
-            <div className="pointer-events-none absolute inset-0 -z-10">
-              <div className="absolute left-1/2 top-8 h-[460px] w-[460px] -translate-x-1/2 rounded-full bg-[var(--accent-glass)] blur-[90px]" />
-              <div className="absolute right-0 top-24 h-64 w-64 rounded-full bg-[var(--glass-border)] blur-[70px]" />
-            </div>
-
-            <div className="grid gap-12">
-              <div className="page-reveal grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-                <div className="grid gap-6">
-                  <div className="flex flex-wrap items-center gap-2">
-                    {[
-                      "Information Technology",
-                      "Systems",
-                      "Economics",
-                      "Accounting",
-                    ].map((tag) => (
-<span
-                         key={tag}
-                         className="glass-pill rounded-full px-3 py-1 text-xs font-medium tracking-tight text-[var(--muted)]"
-                       >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <h1 className="heading-display text-pretty text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-6xl">
-                    Designing dependable systems with a tech-first lens.
-                  </h1>
-
-                  <p className="max-w-2xl text-pretty text-[15px] leading-7 text-[var(--muted)] sm:text-base">
-                    I’m {site.name}, a student in Hong Kong focused on Information
-                    Technology. I build practical systems and user-facing tools,
-                    applying economics and accounting as decision-making context.
-                  </p>
-
-                  <div className="flex flex-wrap gap-3 pt-1">
-                    <LinkButton href="#projects">View projects</LinkButton>
-                    <LinkButton href="#contact" variant="secondary">
-                      Contact
-                    </LinkButton>
-                  </div>
-                </div>
-
-                <div className="tech-grid hero-band glass-card rounded-3xl p-6">
-                  <div className="flex items-center justify-between">
-                    <p className="eyebrow text-xs font-medium uppercase text-[var(--muted)]">
-                      hk tech ledger
-                    </p>
-                    <p className="text-xs font-medium text-[var(--muted)]">
-                      updated · 2026
-                    </p>
-                  </div>
-                  <div className="mt-4 flex items-center gap-2 text-xs font-medium text-[var(--muted)]">
-<span className="glass-pill inline-flex h-6 items-center rounded-full px-3">
-                       Hong Kong
-                     </span>
-                     <span className="glass-pill inline-flex h-6 items-center rounded-full px-3">
-                       IT · Economics · Accounting
-                     </span>
-                  </div>
-                  <div className="mt-6 grid gap-4">
-                    <div className="ledger-lines">
-                      <p className="text-sm font-semibold text-[var(--text)]">
-                        Focus
-                      </p>
-                      <p className="mt-2 text-sm text-[var(--muted)]">
-                        Systems design · Web apps · Reliability
-                      </p>
-                    </div>
-                    <div className="ledger-lines">
-                      <p className="text-sm font-semibold text-[var(--text)]">
-                        Built With
-                      </p>
-                      <p className="mt-2 text-sm text-[var(--muted)]">
-                        Next.js · API integrations · Infrastructure
-                      </p>
-                    </div>
-                    <div className="ledger-lines">
-                      <p className="text-sm font-semibold text-[var(--text)]">
-                        Context
-                      </p>
-                      <p className="mt-2 text-sm text-[var(--muted)]">
-                        Economics and accounting for practical decisions
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid gap-4 lg:grid-cols-3">
-                <Card
-                  title="Tech-forward profile"
-                  subtitle="Systems, interfaces, delivery"
-                >
-                  IT-first work focused on building tools that are reliable,
-                  usable, and grounded in real constraints.
-                </Card>
-                <Card title="Strategic + technical" subtitle="How I work">
-                  I model the problem, prototype quickly, then refine into
-                  dependable systems that people actually use.
-                </Card>
-                <Card title="Applied outcomes" subtitle="Projects">
-                  Self-directed projects that prioritize data integrity,
-                  performance, and clean user experience.
-                </Card>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <Section id="about" eyebrow="About" title="A multidisciplinary foundation">
-        <div className="grid gap-6">
-          <p>
-            My academic path centers on Information Technology, with Economics
-            and Accounting as supporting disciplines. That blend helps me make
-            grounded technical decisions that map to real-world constraints.
-          </p>
-          <p>
-            I approach challenges technically (building systems and
-            implementing solutions) and strategically (considering context,
-            tradeoffs, and outcomes).
-          </p>
-
-          <div className="glass-card grid gap-4 rounded-2xl p-5 sm:grid-cols-2">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
-                  Signal 01
-                </p>
-                <p className="mt-2 text-sm font-medium text-[var(--text)]">
-                  Analytical rigor
-                </p>
-                <p className="mt-2 text-sm text-[var(--muted)]">
-                  Economics and accounting framing to reason clearly and justify
-                  decisions.
-                </p>
-              </div>
-              <div className="glass-card grid gap-4 rounded-2xl p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
-                  Signal 02
-                </p>
-                <p className="mt-2 text-sm font-medium text-[var(--text)]">
-                  Practical application
-                </p>
-                <p className="mt-2 text-sm text-[var(--muted)]">
-                  Building user-centric systems that solve concrete problems.
-                </p>
-              </div>
-            </div>
-        </div>
-      </Section>
-
-      <Section id="projects" eyebrow="Projects" title="Selected work">
-        <div className="grid gap-4 lg:grid-cols-3">
-          <Card
-            title="Hong Kong Public Transport Real‑Time ETA"
-            subtitle="KMB buses • MTR • Light Rail"
-            className="lg:col-span-2"
-          >
-            <p>
-              Built a web application that aggregates real-time estimated arrival
-              information across multiple transport services and presents it in a
-              clean, accessible experience.
+      <PageShell>
+        <section
+          id="home"
+          className="scroll-mt-24 py-20 sm:py-28 lg:min-h-[70dvh] lg:flex lg:flex-col lg:justify-center"
+        >
+          <div className="grid gap-6">
+            <h1 className="text-display-xl text-[var(--text)]">{site.name}</h1>
+            <p className="font-mono text-sm text-[var(--muted)]">
+              IT · Hong Kong · Economics & Accounting
             </p>
-            <ul className="mt-3 list-disc pl-5">
-              <li>KMB buses</li>
-              <li>MTR</li>
-              <li>Light Rail</li>
-            </ul>
-          </Card>
-
-          <Card title="Minecraft server" subtitle="Repurpose + management">
-            Repurposed and upgraded a 10-year-old desktop all-in-one PC into a
-            dedicated Minecraft server for friends—demonstrating troubleshooting,
-            maintenance, and ongoing operational ownership.
-          </Card>
-
-          <Card
-            title="Shared subscriptions"
-            subtitle="Resource management"
-            className="lg:col-span-3"
-          >
-            Manages shared subscriptions across streaming, music, and cloud
-            services with a focus on cost optimization for friends and family.
-          </Card>
-        </div>
-      </Section>
-
-      <Section
-        id="ctfs"
-        eyebrow="CTFs"
-        title="Cybersecurity CTF results"
-      >
-        <div className="grid gap-6">
-          <p>
-            Competing in the secondary school category with team Sing Yin Jockey
-            Club, I focus on practical defense skills and consistent results.
-          </p>
-          <div className="grid gap-4 lg:grid-cols-3">
-            <Card title="CUHK CTF" subtitle="2025">
-              5th place in the secondary school category.
-            </Card>
-            <Card title="HKCERT CTF" subtitle="2025">
-              Gold award in the secondary school category.
-            </Card>
-            <Card title="HKUST Firebird CTF" subtitle="2026">
-              7th place overall, 1st place in the secondary school category.
-            </Card>
+            <div className="grid max-w-xl gap-4">
+              <div className="h-0.5 w-12 bg-[var(--accent)]" />
+              <p className="text-lead">
+                I study Information Technology and build things I actually use
+                — transport tools, servers, web apps. Economics and accounting
+                help me think about tradeoffs, not just code.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 pt-1">
+              <LinkButton href="#projects">View projects</LinkButton>
+              <LinkButton href={`mailto:${site.email}`} variant="secondary">
+                Email me
+              </LinkButton>
+            </div>
           </div>
-        </div>
-      </Section>
+        </section>
 
-      <Section id="aspirations" eyebrow="Aspirations" title="Where I’m heading">
-        <div className="grid gap-6">
-          <p>
-            I want to leverage my technical foundation and independent project
-            experience to contribute in environments where technology drives
-            innovation and efficiency.
-          </p>
+        <Section id="about" number="01" title="Background">
+          <div className="grid gap-6">
+            <p>
+              My focus is Information Technology. I also study Economics and
+              Accounting — they give me a way to weigh costs, constraints, and
+              outcomes when I&apos;m building something.
+            </p>
+            <p>
+              I like working on problems end to end: figure out what&apos;s
+              needed, build a first version, then make it reliable enough that
+              people can depend on it.
+            </p>
+            <dl className="grid gap-4 sm:grid-cols-3">
+              {[
+                {
+                  term: "Information Technology",
+                  detail: "Systems, web, infrastructure",
+                },
+                { term: "Economics", detail: "Tradeoffs and decision-making" },
+                { term: "Accounting", detail: "Cost and resource tracking" },
+              ].map((item) => (
+                <div key={item.term}>
+                  <dt className="text-sm font-medium text-[var(--text)]">
+                    {item.term}
+                  </dt>
+                  <dd className="mt-1 text-sm text-[var(--muted)]">
+                    {item.detail}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </Section>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Proactive learner",
-                body: "I grow quickly by building, iterating, and staying curious.",
-              },
-              {
-                title: "Problem-solver",
-                body: "I enjoy producing clear solutions that work under constraints.",
-              },
-              {
-                title: "Tangible outcomes",
-                body: "I’m most motivated by systems that ship and provide value.",
-              },
-            ].map((item) => (
-<div
-                 key={item.title}
-                 className="glass-card rounded-2xl p-5"
-               >
-                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
-                   Priority
-                 </p>
-                 <p className="mt-2 text-sm font-medium text-[var(--text)]">
-                   {item.title}
-                 </p>
-                 <p className="mt-2 text-sm text-[var(--muted)]">{item.body}</p>
-               </div>
+        <Section
+          id="projects"
+          number="02"
+          title="Selected work"
+          variant="inset"
+        >
+          <div>
+            {projects.map((project) => (
+              <ProjectEntry key={project.title} {...project} />
             ))}
           </div>
+        </Section>
 
+        <Section
+          id="ctfs"
+          number="03"
+          title="Cybersecurity competitions"
+          variant="inset"
+        >
+          <div className="grid gap-6">
+            <p>
+              I compete in the secondary school category with team Sing Yin
+              Jockey Club. CTFs are where I practice defense skills under time
+              pressure.
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm">
+                <thead>
+                  <tr className="border-b border-[var(--border)]">
+                    <th className="pb-2 pr-4 font-medium text-[var(--text)]">
+                      Event
+                    </th>
+                    <th className="pb-2 pr-4 font-medium text-[var(--text)]">
+                      Year
+                    </th>
+                    <th className="pb-2 font-medium text-[var(--text)]">
+                      Result
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ctfResults.map((row) => (
+                    <tr
+                      key={row.event}
+                      className="border-b border-[var(--border)]"
+                    >
+                      <td className="py-3 pr-4 text-[var(--text)]">
+                        {row.event}
+                      </td>
+                      <td className="py-3 pr-4 text-[var(--muted)]">
+                        {row.year}
+                      </td>
+                      <td
+                        className={
+                          row.highlight
+                            ? "py-3 font-medium text-[var(--text)]"
+                            : "py-3 text-[var(--muted)]"
+                        }
+                      >
+                        {row.result}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </Section>
+
+        <Section id="aspirations" number="04" title={"Where I'm heading"}>
           <p>
-            I’m committed to continuous growth and to delivering systems that are
-            simple, useful, and reliable.
+            I want to keep building useful systems and get better at doing it in
+            teams and organizations. Right now that means shipping personal
+            projects, competing in CTFs, and learning how real infrastructure
+            holds up over time. I&apos;m looking for environments where
+            technical work has clear impact — not just slides about impact.
           </p>
-        </div>
-      </Section>
+        </Section>
 
-      <Section id="contact" eyebrow="Contact" title="Let’s connect">
-        <div className="grid gap-10">
-          <div className="grid gap-4 lg:grid-cols-3">
-            <Card title="Email" subtitle="Fastest way to reach me">
-<Link
-                 href={`mailto:${site.email}`}
-                 className="text-[var(--text)] underline decoration-[var(--accent-border)] underline-offset-4 hover:decoration-[var(--accent)]"
-               >
-                {site.email}
-              </Link>
-            </Card>
-
-            <Card title="Social" subtitle="Profiles">
-              <div className="flex flex-col gap-2">
+        <Section
+          id="contact"
+          number="05"
+          title="Get in touch"
+          variant="compact"
+        >
+          <div className="grid gap-8">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <p className="text-sm font-medium text-[var(--text)]">Email</p>
                 <Link
-                  href={site.links.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-[var(--text)] hover:underline"
+                  href={`mailto:${site.email}`}
+                  className="link mt-1 inline-block text-sm"
                 >
-                  LinkedIn
-                </Link>
-                <Link
-                  href={site.links.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-[var(--text)] hover:underline"
-                >
-                  GitHub
-                </Link>
-                <Link
-                  href={site.links.instagram}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-[var(--text)] hover:underline"
-                >
-                  Instagram
+                  {site.email}
                 </Link>
               </div>
-            </Card>
-
-            <Card title="One sentence" subtitle="Quick summary">
-              {site.description}
-            </Card>
-          </div>
-
-          <div className="glass-card rounded-3xl p-6">
-            <div className="flex items-center justify-between">
-              <p className="eyebrow text-xs font-medium uppercase text-[var(--muted)]">
-                Websites
-              </p>
-              <span className="text-xs font-medium text-[var(--muted)]">hk stack</span>
+              <div>
+                <p className="text-sm font-medium text-[var(--text)]">Social</p>
+                <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1">
+                  <Link
+                    href={site.links.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="link text-sm"
+                  >
+                    LinkedIn
+                  </Link>
+                  <Link
+                    href={site.links.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="link text-sm"
+                  >
+                    GitHub
+                  </Link>
+                  <Link
+                    href={site.links.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="link text-sm"
+                  >
+                    Instagram
+                  </Link>
+                </div>
+              </div>
             </div>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              <ProductTile
-                name="TimoDrive"
-                href="https://drive.hkjc.uk"
-                description="Personal drive and file space."
-              />
-              <ProductTile
-                name="TimoETA"
-                href="https://eta.hkjc.uk"
-                description="Hong Kong transport ETA viewer."
-              />
-              <ProductTile
-                name="TimoForums"
-                href="https://forums.hkjc.uk"
-                description="Discussion and community forums."
-              />
-              <ProductTile
-                name="TimoJournal"
-                href="https://journal.hkjc.uk"
-                description="Notes and journaling space."
-              />
+
+            <div>
+              <p className="text-sm font-medium text-[var(--text)]">Websites</p>
+              <ul className="mt-2 flex flex-col gap-2">
+                {site.websites.map((website) => (
+                  <li key={website.url}>
+                    <Link
+                      href={website.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="link inline-flex flex-wrap items-baseline gap-2 text-sm"
+                    >
+                      <span>{website.name}</span>
+                      <span className="font-mono text-xs text-[var(--muted)]">
+                        {website.url.replace(/^https?:\/\//, "")}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        </div>
-      </Section>
+        </Section>
+      </PageShell>
     </main>
   );
 }

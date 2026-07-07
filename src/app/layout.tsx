@@ -25,7 +25,7 @@ const mono = IBM_Plex_Mono({
 
 const title = "Timothy Wong — Information Technology, Economics & Accounting";
 const description =
-  "A tech-first student in Information Technology with economics and accounting as decision-making context.";
+  "IT student in Hong Kong. I build web apps, run servers, and compete in CTFs.";
 
 export const metadata: Metadata = {
   title: {

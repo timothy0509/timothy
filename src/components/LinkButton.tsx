@@ -10,13 +10,13 @@ type Props = {
 
 export function LinkButton({ href, children, variant = "primary" }: Props) {
   const base =
-    "inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-medium transition-all";
+    "inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors";
 
   if (variant === "primary") {
     return (
       <Link
         href={href}
-        className={`${base} glass-accent text-[var(--text)] shadow-[0_12px_32px_var(--accent-glass)] hover:border-[var(--accent-border-hover)] hover:bg-[var(--accent-glass-hover)]`}
+        className={`${base} bg-[var(--accent)] text-white hover:bg-[var(--accent-2)]`}
       >
         {children}
       </Link>
@@ -26,7 +26,7 @@ export function LinkButton({ href, children, variant = "primary" }: Props) {
   return (
     <Link
       href={href}
-      className={`${base} glass-pill text-[var(--text)] hover:bg-[var(--accent-glass)]`}
+      className={`${base} border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] hover:border-[var(--accent)]`}
     >
       {children}
     </Link>
