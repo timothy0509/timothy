@@ -29,7 +29,7 @@ export function ProjectEntry({
   );
 
   return (
-    <article className="group border-b border-[var(--border)] py-6 first:pt-0 last:border-b-0">
+    <article className="group border-b border-[var(--border)] py-4 first:pt-0 last:border-b-0 sm:py-6">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
         <h3 className="text-base tracking-tight">{titleContent}</h3>
         <p className="shrink-0 font-mono text-xs text-[var(--muted)]">{meta}</p>

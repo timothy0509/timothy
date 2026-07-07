@@ -10,7 +10,7 @@ pre,
 kbd,
 samp {
   font-family: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo,
-    Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 :root {
@@ -68,22 +68,30 @@ body {
 
 .text-display-xl {
   font-family: var(--font-display), "Iowan Old Style", "Palatino", serif;
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: 600;
   letter-spacing: -0.03em;
-  line-height: 1.05;
+  line-height: 1.1;
 }
 
 @media (min-width: 640px) {
   .text-display-xl {
     font-size: 3.75rem;
+    line-height: 1.05;
   }
 }
 
 .text-lead {
-  font-size: 1.125rem;
-  line-height: 2rem;
+  font-size: 1rem;
+  line-height: 1.75rem;
   color: rgba(13, 19, 25, 0.72);
+}
+
+@media (min-width: 640px) {
+  .text-lead {
+    font-size: 1.125rem;
+    line-height: 2rem;
+  }
 }
 
 .text-prose {

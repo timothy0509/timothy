@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 
 type SectionVariant = "default" | "inset" | "compact";
 
+const scrollOffset = "scroll-mt-[5.5rem] lg:scroll-mt-24";
+
 export function Section({
   id,
   number,
@@ -16,15 +18,15 @@ export function Section({
   children: ReactNode;
 }) {
   const spacing =
-    variant === "compact" ? "py-12 sm:py-16" : "py-20 sm:py-28";
+    variant === "compact"
+      ? "py-8 sm:py-12 lg:py-16"
+      : "py-12 sm:py-16 lg:py-28";
 
   const inner = (
     <div className="grid gap-6">
       <div className="grid gap-2">
-        {number ? (
-          <p className="section-number">{number}</p>
-        ) : null}
-        <h2 className="heading-display text-pretty text-2xl font-semibold tracking-tight text-[var(--text)] sm:text-3xl">
+        {number ? <p className="section-number">{number}</p> : null}
+        <h2 className="heading-display text-pretty text-xl font-semibold tracking-tight text-[var(--text)] sm:text-2xl lg:text-3xl">
           {title}
         </h2>
       </div>
@@ -35,8 +37,8 @@ export function Section({
 
   if (variant === "inset") {
     return (
-      <section id={id} className={`scroll-mt-24 ${spacing}`}>
-        <div className="-mx-5 bg-[var(--surface-inset)] px-5 py-10 sm:-mx-8 sm:px-8 sm:py-12">
+      <section id={id} className={`${scrollOffset} ${spacing}`}>
+        <div className="-mx-5 bg-[var(--surface-inset)] px-5 py-8 sm:-mx-8 sm:px-8 sm:py-10 lg:py-12">
           {inner}
         </div>
       </section>
@@ -44,7 +46,7 @@ export function Section({
   }
 
   return (
-    <section id={id} className={`scroll-mt-24 ${spacing}`}>
+    <section id={id} className={`${scrollOffset} ${spacing}`}>
       {inner}
     </section>
   );

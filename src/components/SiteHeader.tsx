@@ -8,58 +8,43 @@ import { sections, site } from "@/lib/site";
 
 export function SiteHeader() {
   const active = useActiveSection(sections.map((s) => s.id));
+  const navSections = sections.filter((item) => item.number !== null);
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--surface)] lg:hidden">
       <Container>
-        <div className="flex h-14 items-center justify-between gap-4">
+        <div className="flex h-14 items-center">
           <Link
             href="#home"
             className="heading-display text-base font-semibold tracking-tight text-[var(--text)]"
           >
             {site.name}
           </Link>
-
-          <details className="group relative">
-            <summary className="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-md border border-[var(--border)] text-[var(--text)] [&::-webkit-details-marker]:hidden">
-              <span className="sr-only">Open menu</span>
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M2 4.5h14M2 9h14M2 13.5h14"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </summary>
-
-            <nav className="absolute right-0 top-full z-50 mt-2 min-w-44 rounded-md border border-[var(--border)] bg-[var(--surface)] py-2 shadow-sm">
-              {sections.map((item) => {
-                const isActive = active === item.id;
-                return (
-                  <Link
-                    key={item.id}
-                    href={item.href}
-                    className={
-                      "block px-4 py-2 text-sm transition-colors " +
-                      (isActive
-                        ? "font-medium text-[var(--text)]"
-                        : "text-[var(--muted)] hover:text-[var(--text)]")
-                    }
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-            </nav>
-          </details>
         </div>
+
+        <nav
+          className="-mx-5 flex gap-1 overflow-x-auto px-5 pb-px [scrollbar-width:none] sm:-mx-8 sm:px-8 [&::-webkit-scrollbar]:hidden"
+          aria-label="Sections"
+        >
+          {navSections.map((item) => {
+            const isActive = active === item.id;
+            return (
+              <Link
+                key={item.id}
+                href={item.href}
+                className={
+                  "flex shrink-0 items-center gap-2 border-b-2 px-3 py-2.5 text-sm transition-colors " +
+                  (isActive
+                    ? "border-[var(--accent)] font-medium text-[var(--text)]"
+                    : "border-transparent text-[var(--muted)] hover:text-[var(--text)]")
+                }
+              >
+                <span className="section-number">{item.number}</span>
+                <span>{item.label}</span>
+              </Link>
+            );
+          })}
+        </nav>
       </Container>
     </header>
   );

@@ -23,7 +23,7 @@ export function useActiveSection(sectionIds: string[]) {
       },
       {
         root: null,
-        rootMargin: "-25% 0px -65% 0px",
+        rootMargin: "-30% 0px -60% 0px",
         threshold: [0.05, 0.1, 0.2, 0.3],
       },
     );

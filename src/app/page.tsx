@@ -33,7 +33,7 @@ export default function HomePage() {
       <PageShell>
         <section
           id="home"
-          className="scroll-mt-24 flex min-h-dvh flex-col justify-center py-20 sm:py-28"
+          className="scroll-mt-[5.5rem] flex flex-col justify-center py-12 sm:py-20 lg:min-h-[70dvh] lg:scroll-mt-24 lg:py-28"
         >
           <div className="grid gap-6">
             <h1 className="text-display-xl text-[var(--text)]">{site.name}</h1>
@@ -116,8 +116,29 @@ export default function HomePage() {
               Jockey Club. CTFs are where I practice defense skills under time
               pressure.
             </p>
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm">
+            <div className="sm:hidden">
+              {ctfResults.map((row) => (
+                <article
+                  key={row.event}
+                  className="border-b border-[var(--border)] py-4 last:border-b-0"
+                >
+                  <p className="font-medium text-[var(--text)]">{row.event}</p>
+                  <p className="mt-1 font-mono text-xs text-[var(--muted)]">
+                    {row.year}
+                  </p>
+                  <p
+                    className={
+                      row.highlight
+                        ? "mt-2 text-sm font-medium text-[var(--text)]"
+                        : "mt-2 text-sm text-[var(--muted)]"
+                    }
+                  >
+                    {row.result}
+                  </p>
+                </article>
+              ))}
+            </div>
+            <table className="hidden w-full text-left text-sm sm:table">
                 <thead>
                   <tr className="border-b border-[var(--border)]">
                     <th className="pb-2 pr-4 font-medium text-[var(--text)]">
@@ -156,7 +177,6 @@ export default function HomePage() {
                   ))}
                 </tbody>
               </table>
-            </div>
           </div>
         </Section>
 

@@ -7,7 +7,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-[var(--border)]">
       <Container>
-        <div className="flex flex-col gap-3 py-10 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 py-6 sm:flex-row sm:items-center sm:justify-between sm:py-10">
           <p className="text-sm text-[var(--muted)]">
             © {new Date().getFullYear()} {site.name}
           </p>

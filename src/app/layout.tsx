@@ -54,7 +54,7 @@ export default function RootLayout({
       <body
         className={`${display.variable} ${sans.variable} ${mono.variable} min-h-dvh antialiased`}
       >
-        <div className="flex min-h-dvh flex-col">
+        <div className="flex min-h-dvh flex-col pb-[env(safe-area-inset-bottom)]">
           <SiteHeader />
           <div className="flex-1">{children}</div>
           <SiteFooter />
