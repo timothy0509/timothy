@@ -4,59 +4,47 @@ import Link from "next/link";
 
 import { Container } from "@/components/Container";
 import { useActiveSection } from "@/components/useActiveSection";
-
-const nav = [
-  { href: "#home", id: "home", label: "Home" },
-  { href: "#about", id: "about", label: "About" },
-  { href: "#projects", id: "projects", label: "Projects" },
-  { href: "#aspirations", id: "aspirations", label: "Aspirations" },
-  { href: "#contact", id: "contact", label: "Contact" },
-] as const;
+import { sections, site } from "@/lib/site";
 
 export function SiteHeader() {
-  const active = useActiveSection(nav.map((n) => n.id));
+  const active = useActiveSection(sections.map((s) => s.id));
+  const navSections = sections.filter((item) => item.number !== null);
 
   return (
-    <header className="glass-nav sticky top-0 z-50 border-b border-[var(--border)]">
+    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--surface)] lg:hidden">
       <Container>
-        <div className="flex h-16 items-center justify-between gap-6">
+        <div className="flex h-14 items-center">
           <Link
             href="#home"
             className="heading-display text-base font-semibold tracking-tight text-[var(--text)]"
           >
-            Timothy Wong
-          </Link>
-
-          <nav className="glass-pill hidden items-center gap-1 rounded-full p-1 sm:flex">
-            {nav.map((item) => {
-              const isActive = active === item.id;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={
-                    "relative rounded-full px-3 py-2 text-sm font-medium transition-colors " +
-                    (isActive
-                      ? "text-[var(--text)]"
-                      : "text-[var(--muted)] hover:text-[var(--text)]")
-                  }
-                >
-                  {isActive ? (
-                    <span className="glass-accent pointer-events-none absolute inset-0 -z-10 rounded-full shadow-[0_0_0_1px_var(--glass-border-accent),0_12px_32px_var(--accent-glass)]" />
-                  ) : null}
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
-
-          <Link
-            href="#contact"
-            className="glass-accent rounded-full px-4 py-2 text-sm font-medium text-[var(--text)] transition-all hover:border-[var(--accent-border-hover)] hover:bg-[var(--accent-glass-hover)]"
-          >
-            Let’s connect
+            {site.name}
           </Link>
         </div>
+
+        <nav
+          className="-mx-5 flex gap-1 overflow-x-auto px-5 pb-px [scrollbar-width:none] sm:-mx-8 sm:px-8 [&::-webkit-scrollbar]:hidden"
+          aria-label="Sections"
+        >
+          {navSections.map((item) => {
+            const isActive = active === item.id;
+            return (
+              <Link
+                key={item.id}
+                href={item.href}
+                className={
+                  "flex shrink-0 items-center gap-2 border-b-2 px-3 py-2.5 text-sm transition-colors " +
+                  (isActive
+                    ? "border-[var(--accent)] font-medium text-[var(--text)]"
+                    : "border-transparent text-[var(--muted)] hover:text-[var(--text)]")
+                }
+              >
+                <span className="section-number">{item.number}</span>
+                <span>{item.label}</span>
+              </Link>
+            );
+          })}
+        </nav>
       </Container>
     </header>
   );

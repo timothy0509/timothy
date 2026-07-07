@@ -25,7 +25,7 @@ const mono = IBM_Plex_Mono({
 
 const title = "Timothy Wong — Information Technology, Economics & Accounting";
 const description =
-  "A tech-first student in Information Technology with economics and accounting as decision-making context.";
+  "IT student in Hong Kong. I build web apps, run servers, and compete in CTFs.";
 
 export const metadata: Metadata = {
   title: {
@@ -54,7 +54,7 @@ export default function RootLayout({
       <body
         className={`${display.variable} ${sans.variable} ${mono.variable} min-h-dvh antialiased`}
       >
-        <div className="flex min-h-dvh flex-col">
+        <div className="flex min-h-dvh flex-col pb-[env(safe-area-inset-bottom)]">
           <SiteHeader />
           <div className="flex-1">{children}</div>
           <SiteFooter />

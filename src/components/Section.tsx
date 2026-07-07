@@ -1,46 +1,53 @@
 import type { ReactNode } from "react";
 
-import { Container } from "@/components/Container";
+type SectionVariant = "default" | "inset" | "compact";
+
+const scrollOffset = "scroll-mt-[5.5rem] lg:scroll-mt-24";
 
 export function Section({
   id,
-  eyebrow,
+  number,
   title,
+  variant = "default",
   children,
 }: {
   id?: string;
-  eyebrow?: string;
+  number?: string;
   title: string;
+  variant?: SectionVariant;
   children: ReactNode;
 }) {
-  return (
-    <section id={id} className="scroll-mt-24 py-16 sm:py-24">
-      <Container>
-        <div className="grid gap-10 lg:grid-cols-[0.35fr_0.65fr]">
-          <div className="relative flex flex-col gap-4 pl-6">
-            <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-[var(--accent)]" />
-            <span className="absolute left-[3px] top-6 h-[calc(100%-0.5rem)] w-px bg-[var(--glass-border)]" />
-            {eyebrow ? (
-              <div className="flex items-center gap-3">
-                <span className="h-px w-10 bg-[var(--border)]" />
-                <p className="eyebrow text-xs font-medium uppercase text-[var(--muted)]">
-                  {eyebrow}
-                </p>
-              </div>
-            ) : null}
-            <h2 className="heading-display text-pretty text-2xl font-semibold tracking-tight text-[var(--text)] sm:text-3xl">
-              {title}
-            </h2>
-            <span className="h-px w-12 bg-[var(--border)]" />
-          </div>
-          <div className="glass-card relative rounded-3xl p-7">
-            <span className="pointer-events-none absolute right-6 top-6 h-2 w-2 rounded-full bg-[var(--accent)] opacity-60" />
-            <div className="text-[15px] leading-7 text-[var(--muted)]">
-              {children}
-            </div>
-          </div>
+  const spacing =
+    variant === "compact"
+      ? "py-8 sm:py-12 lg:py-16"
+      : "py-12 sm:py-16 lg:py-28";
+
+  const inner = (
+    <div className="grid gap-6">
+      <div className="grid gap-2">
+        {number ? <p className="section-number">{number}</p> : null}
+        <h2 className="heading-display text-pretty text-xl font-semibold tracking-tight text-[var(--text)] sm:text-2xl lg:text-3xl">
+          {title}
+        </h2>
+      </div>
+      {variant !== "compact" ? <hr className="rule" /> : null}
+      <div className="text-prose text-[var(--muted)]">{children}</div>
+    </div>
+  );
+
+  if (variant === "inset") {
+    return (
+      <section id={id} className={`${scrollOffset} ${spacing}`}>
+        <div className="-mx-5 bg-[var(--surface-inset)] px-5 py-8 sm:-mx-8 sm:px-8 sm:py-10 lg:py-12">
+          {inner}
         </div>
-      </Container>
+      </section>
+    );
+  }
+
+  return (
+    <section id={id} className={`${scrollOffset} ${spacing}`}>
+      {inner}
     </section>
   );
 }
