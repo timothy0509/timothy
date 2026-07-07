@@ -33,7 +33,7 @@ export default function HomePage() {
       <PageShell>
         <section
           id="home"
-          className="scroll-mt-24 py-20 sm:py-28 lg:min-h-[70dvh] lg:flex lg:flex-col lg:justify-center"
+          className="scroll-mt-24 flex min-h-dvh flex-col justify-center py-20 sm:py-28"
         >
           <div className="grid gap-6">
             <h1 className="text-display-xl text-[var(--text)]">{site.name}</h1>
