@@ -25,6 +25,12 @@ const ctfResults = [
     result: "7th overall, 1st in secondary school category",
     highlight: true,
   },
+  {
+    event: "PolyU x NuttyShell Cybersecurity CTF",
+    year: "2026",
+    result: "5th overall, 2nd in secondary school category",
+    highlight: true,
+  },
 ] as const;
 
 export default function HomePage() {
